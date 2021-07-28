@@ -17,9 +17,14 @@ let pokemonRepository = (function () {
     let pagelist = document.querySelector('.pokemon-page-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
+    let scrollId = pokemon.name;
     button.innerText = (pokemon.name);
-    $(button).addClass("button2class btn");
+    $(button).addClass("button2class btn btn-info btn-lg");
     $(listItem).addClass("list-group-item");
+    $(listItem).attr('id', scrollId);
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#pokemonModal');
+    button.dataset.target = '#pokemon-modal';
     listItem.appendChild(button);
     pagelist.appendChild(listItem);
 
@@ -104,25 +109,21 @@ let pokemonRepository = (function () {
     }
 
   }
-
-  //show modal by adding .isvisible class
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //show modal 
   function showModal(pokemon){
-    let modalContainer = $('#modal-container');
-    $(modalContainer).addClass('is-visible');
 
-    modalContainer.innerHTML = '';
+    let modal = $('.modal');
+    let modalTitle = $('.modal-title');
+    let modalBody = $('.modal-body');
 
-    //create modal div
+    modalBody.empty();
+    modalTitle.empty();
 
-
-    //add hideing functionality
-
-
-
-    // add stuff to modal
 
     let titleElement = document.createElement('h1');
     titleElement.innerText = (pokemon.name);
+    $(titleElement).addClass('modal-pokeTitle');
 
 
     let pokePic = document.createElement('div');
@@ -147,6 +148,7 @@ let pokemonRepository = (function () {
     }
     $(pokeType).addClass('modal-pokeType');
 
+
     //arrow buttons
     let arrowright = document.createElement('button');
     $(arrowright).addClass('modal-arrowright btn');
@@ -156,6 +158,8 @@ let pokemonRepository = (function () {
       if (pokePosition === 150){
         pokePosition = 0;
       }
+      modalBody.empty();
+      modalTitle.empty();
       showDetails(pokemonList[pokePosition]);
     });
     
@@ -167,6 +171,8 @@ let pokemonRepository = (function () {
       if (pokePosition < 0){
         pokePosition = 149;
       }
+      modalBody.empty();
+      modalTitle.empty();
       console.log(pokePosition);
       showDetails(pokemonList[pokePosition]);
     });
@@ -179,43 +185,27 @@ let pokemonRepository = (function () {
 
     let arrowdivleft = document.createElement('span');
     $(arrowdivleft).addClass('modal-arrow-div-left');
-   
-    let modal = $('.modal');
-    let modalTitle = $('.modal-title');
-    let modalBody = $('.modal-body');
-    let modalFooter = $('.modal-footer');
   
-    
     
     modalTitle.append(titleElement);
     
+    modalBody.append(pokePic);
+
     modalBody.append(arrowdiv);
     arrowdivleft.append(arrowleft);
     arrowdivright.append(arrowright);
     arrowdiv.append(arrowdivright);
     arrowdiv.append(arrowdivleft);
 
-    modalBody.append(pokePic);
-
-    modalFooter.append(pokeId);
-    modalFooter.append(pokeHeight);
-    modalFooter.append(pokeType);
+    modalBody.append(pokeId);
+    modalBody.append(pokeHeight);
+    modalBody.append(pokeType);
 
     modalContainer.append(modal);
-
-
-
-
-    //event listeners for buttons.
-
     
   }
 
-  //hide modal function
-  function hideModal(){
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.classList.remove('is-visible');
-  }
+
 
   return {
     add: add,

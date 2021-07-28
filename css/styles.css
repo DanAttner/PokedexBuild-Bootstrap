@@ -115,49 +115,43 @@ body {
   }
 
 #modal-container.is-visible{
-      display: grid;
+      display: block;
   }
 
-.modal {
-    margin: auto;
-    display: inline-block;
-    box-sizing: border-box;
-    background: #fff;
-    padding: 15px;
-    width: 100%;
-    max-width: 700px;
-    text-align: left;
- }
+
+
   
-  .modal-close {
-    float: right;
-    -webkit-appearance: none;
-    border: 0;
-    background: none;
-    color: #777;
-    text-decoration: underline;
-  }
 
-  .modal-close:hover{
-    cursor: pointer;
-  }
 
-  .modal h1 {
+
+  .modal-pokeTitle{
     color: black;
     margin-top: 0;
   }
-  
-  .modal p {
+
+  .modal-title{
+    text-align: center;
+  }
+
+  .modal-pokeId{
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .modal-pokeHeight{
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .modal-pokeType{
     color: black;
     margin-top: 0;
     margin-bottom: 0;
   }
 
   .modal-pokePic{
-      text-align: center;
-  }
-
-  .modal-title{
       text-align: center;
   }
 
@@ -177,4 +171,13 @@ body {
   .modal-arrow-div-left{
     position: relative;
     float: left;
+}
+
+
+
+
+/* nav bar stuff */
+
+.navbar{
+  margin-bottom: 20px;
 }
