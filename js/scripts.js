@@ -206,7 +206,6 @@ let pokemonRepository = (function () {
   }
 
 
-
   return {
     add: add,
     getAll: getAll,
@@ -235,3 +234,7 @@ pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
 
 //THEN when clicking the button we take the individual pokemon URL, and get a picture, height,
 //and type details and throws them into the console log.
+
+balsl ;
+
+balss;
