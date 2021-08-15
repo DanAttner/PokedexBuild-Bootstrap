@@ -118,12 +118,6 @@ body {
       display: block;
   }
 
-
-
-  
-
-
-
   .modal-pokeTitle{
     color: black;
     margin-top: 0;
@@ -178,6 +172,27 @@ body {
 
 /* nav bar stuff */
 
+.pokemonPage{
+  margin-top: 100px;
+}
+
 .navbar{
   margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+}
+
+#navbarNav{
+  position:relative;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  width: 100;
+}
+
+.pokedexTitle{
+  margin-top: 90px;
+  margin-bottom: -20px;
 }
